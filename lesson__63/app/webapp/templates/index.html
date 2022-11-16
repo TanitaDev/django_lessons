@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% block menu %}
+{% if user.is_authenticated %}
+<li><a href="{% url 'article_add' %}">Добавить статью</a></li>
+{% endif %}
+{% endblock %}
+{% block content %}
+{% include 'partial/search.html' %}
+{% for article in articles %}
+<h2>{{ article.title }}</h2>
+<h4>Автор: {{ article.author }}</h4>
+{% for comment in articles.comments.all %}
+<p>comment</p>
+{% endfor %}
+<p><a class="link" href="{% url 'article_view' article.pk %}">Подробнее...</a></p>
+{% if user.is_authenticated %}
+{% if perms.webapp.change_article %}
+<p><a class="link" href="{% url 'article_update' article.pk %}">Редактировать</a></p>
+{% endif %}
+<p><a class="link" href="{% url 'article_delete' article.pk %}">Удалить</a></p>
+<p>В избранном: {{ article.users.count }}</p>
+<form action="{% url 'to_favourite' article.pk %}" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form favourite_form %}
+    {% bootstrap_button button_type='submit' content='Добавить в избранное' %}
+</form>
+{% endif %}
+<hr>
+{% endfor %}
+{% if is_paginated %}
+{% include 'partial/pagination.html' %}
+{% endif %}
+{% endblock %}

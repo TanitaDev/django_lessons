@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block menu %}
+{% if user.is_authenticated %}
+<li><a href="{% url 'article_add' %}">Добавить статью</a></li>
+{% endif %}
+{% endblock %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block content %}
+<h2>{{ article.title }}</h2>
+<p>{{ article.text }}</p>
+<p class="author_p">Автор: {{ article.author }}</p>
+{% endblock %}

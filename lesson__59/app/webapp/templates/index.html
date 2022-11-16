@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block menu %}
+<li><a href="{% url 'article_add' %}">Добавить статью</a></li>
+{% endblock %}
+{% block content %}
+{% include 'partial/search.html' %}
+{% for article in articles %}
+<h2>{{ article.title }}</h2>
+<h4>Автор: {{ article.author }}</h4>
+{% for comment in articles.comments.all %}
+<p>comment</p>
+{% endfor %}
+<p><a class="link" href="{% url 'article_view' article.pk %}">Подробнее...</a></p>
+<p><a class="link" href="{% url 'article_update' article.pk %}">Редактировать</a></p>
+<p><a class="link" href="{% url 'article_delete' article.pk %}">Удалить</a></p>
+<hr>
+{% endfor %}
+{% if is_paginated %}
+   {% include 'partial/pagination.html' %}
+{% endif %}
+{% endblock %}

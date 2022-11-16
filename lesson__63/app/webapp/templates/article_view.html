@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block menu %}
+{% if user.is_authenticated %}
+<li><a href="{% url 'article_add' %}">Добавить статью</a></li>
+{% endif %}
+{% endblock %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block content %}
+<h2>{{ article.title }}</h2>
+<p>{{ article.text }}</p>
+<p>В избранном: {{ article.users.count }}</p>
+{% for favourite in article.favourite_users.all %}
+<p>{{ favourite.user.username }} - {{ favourite.note }}</p>
+{% endfor %}
+<p class="author_p">Автор: {{ article.author }}</p>
+{% endblock %}

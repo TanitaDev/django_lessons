@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Title</title>
+</head>
+<body>
+{% block menu %}
+   <li><a href="{% url 'article_add' %}">Add Article</a></li>
+{% endblock %}
+{% block title %}Create Article{% endblock %}
+{% block content %}
+   <form action="{% url 'article_add' %}" method="post">
+    {% csrf_token %}
+    <label>Title:</label><br/>
+    <input type="text" name="title"/><br/>
+    <label>Text:</label><br/>
+    <textarea name="content"></textarea><br/>
+    <label>Author:</label><br/>
+    <input type="text" name="author"/><br/>
+    <br/>
+    <input type="submit" value="Send"/>
+</form>
+{% endblock %}
+</body>
+</html>

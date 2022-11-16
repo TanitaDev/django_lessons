@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Title</title>
+</head>
+<body>
+
+{% block menu %}
+<li><a href="{% url 'article_add' %}">Добавить статью</a></li>
+{% endblock %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block content %}
+<h2>{{ article.title }}</h2>
+<p>{{ article.text }}</p>
+<p class="author_p">Автор: {{ article.author }}</p>
+{% endblock %}
+</body>
+</html>

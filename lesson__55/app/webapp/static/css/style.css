@@ -1,0 +1,103 @@
+body{
+    background-color: #638CB8;
+    margin-top: 60px;
+}
+
+input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+  color: #d3d3d3;
+}
+
+.submit{
+    background-color: #6BA3E8;
+}
+
+.center-column{
+    width:600px;
+    margin: 20px auto;
+    padding:20px;
+    background-color: #f2f2f1;
+    border-radius: 3px;
+    box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+}
+
+.item-row{
+    background-color: #906abd;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+}
+
+.btn-danger{
+    background-color: #ffae19;
+    border-color: #e59400;
+}
+
+h1{
+    font-size: 20px;
+}
+
+h2{
+    font-size: 18px;
+}
+
+.navbar {
+    display: block;
+    background: #6a7dff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    font-size: 0;
+    box-sizing: border-box;
+    padding: 7px 30px;
+}
+
+
+.menu {
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    color: #fffee8;
+}
+
+
+.menu li {
+    display: inline-block;
+}
+
+
+.menu a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    padding: 5px 15px;
+}
+
+
+.menu a:hover {
+    color: #ffc122;
+    text-decoration: underline;
+}
+
+.form-error {
+    color: red;
+    font-size: 12px;
+    margin: 5px 0 0 0
+}
+
+.field-error {
+    border: solid 1px red;
+    box-shadow: red 0 0 3px;
+}
